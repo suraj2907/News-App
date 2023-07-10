@@ -15,7 +15,7 @@ const CardItem = ({ article }) => {
       <CardImg top height="250" width="100%" src={article.image} />
       <CardBody>
         <CardTitle style={{ fontWeight: "bold" }}>
-          <span style={{ color: "red" }}>TITLE : </span>
+          <span style={{ color: "reds" }}>TITLE : </span>
 
           {article.title}
         </CardTitle>

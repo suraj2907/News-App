@@ -38,11 +38,10 @@ const Home = () => {
   }, []);
 
   return (
-    <Container fluid style={{padding:"10px", margin:
-    "0 20px 0 20px"}}>
+    <Container fluid style={{ padding: "10px", margin: "0 20px 0 20px" }}>
       <Row>
-        {article.map((article) => (
-          <Col md={3} key={article.id}>
+        {article && article.map((article) => (
+          <Col md={4} key={article.id}>
             <CardItem article={article} />
           </Col>
         ))}
