@@ -12,3 +12,12 @@
   color: rgb(192,192,192);
   cursor: pointer;
 }
+
+.read-more{
+  text-decoration: none !important;
+  color: rgb(100, 0, 0) !important;
+  font-weight: bold;
+}
+.btn{
+  background-color: rgb(35, 55, 179);
+}

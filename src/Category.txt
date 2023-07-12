@@ -1,0 +1,14 @@
+business
+entertainment
+general
+health
+science
+sports
+technology
+
+
+
+
+
+API_KEY = "7674ccdcae814ff29828039e4b8a9b64"
+API_KEY = "e32dd4989b6746cf9d679864e8612ad7"
