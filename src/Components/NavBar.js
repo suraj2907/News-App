@@ -4,6 +4,8 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+ 
+
   return (
     <div>
       <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
@@ -54,13 +56,8 @@ const NavBar = () => {
                   Science
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/general">
-                  General
-                </Link>
-              </li>
             </ul>
-            <form class="d-flex" role="search">
+            <form class="d-flex" role="search" >
               <input
                 class="form-control me-2"
                 type="search"
