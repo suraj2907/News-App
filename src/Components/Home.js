@@ -22,7 +22,7 @@ const Home = ({ category }) => {
     if (search) {
       apiUrl = `https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`;
     }
- apiUrl += `&page=${page}`;
+    apiUrl += `&page=${page}`;
 
     console.log("api", apiUrl);
     try {
@@ -52,6 +52,7 @@ const Home = ({ category }) => {
   useEffect(() => {
     const fetchDataAndResetArticles = async () => {
       await fetchData();
+      window.scrollTo(0, 0);
     };
 
     fetchDataAndResetArticles();
