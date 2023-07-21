@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Col, Row, Card, CardBody, CardTitle } from "reactstrap";
+import { Container, Col, Row } from "reactstrap";
 import axios from "axios";
 import { faker } from "@faker-js/faker";
 import CardItem from "./CardItem";
@@ -35,7 +35,7 @@ const Home = ({ category }) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [article]);
 
   return (
     <Container
@@ -50,20 +50,20 @@ const Home = ({ category }) => {
             </Col>
           ))}
       </Row>
-      <div class="d-flex justify-content-around m-3">
+      {/* <div class="d-flex justify-content-around m-3">
         <button type="button" class="btn btn-dark ">
           Dark
         </button>
         <button type="button" class="btn btn-dark">
           Dark
         </button>
-      </div>
+      </div> */}
     </Container>
   );
 };
 Home.propTypes = {
   category: PropTypes.string,
-  page: PropTypes.number
+  page: PropTypes.number,
 };
 
 export default Home;
