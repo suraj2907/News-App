@@ -9,9 +9,10 @@ import { useParams } from "react-router-dom";
 
 const API_KEY = "b2270c3079594605a4fcd2e69445591e";
 
-const Home = ({ category}) => {
+const Home = ({ category }) => {
   const [article, setArticles] = useState([]);
-  const {search} = useParams();
+  const [page, setPage] = useState(1);
+  const { search } = useParams();
 
   const fetchData = async () => {
     let apiUrl = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${API_KEY}`;
@@ -21,30 +22,31 @@ const Home = ({ category}) => {
     if (search) {
       apiUrl = `https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`;
     }
-    console.log("api", apiUrl);
-try{
-    const { data } = await axios.get(apiUrl);
-    const { articles } = data;
-    console.log(articles);
-    const allArticles = articles.map((article) => ({
-      title: article.title,
-      source: article.source,
-      image: article.urlToImage,
-      id: faker.string.uuid(),
-      description: article.description,
-      publishedAt: article.publishedAt,
-      content: article.url,
-      author: article.author,
-      category: article.category,
-    }));
+ apiUrl += `&page=${page}`;
 
-    console.log(allArticles);
-    setArticles(allArticles);
-  }
-  catch (error) {
-    console.error("Error fetching data:", error);
-    setArticles([]); // Clear articles in case of an error
-  }
+    console.log("api", apiUrl);
+    try {
+      const { data } = await axios.get(apiUrl);
+      const { articles } = data;
+      console.log(articles);
+      const allArticles = articles.map((article) => ({
+        title: article.title,
+        source: article.source,
+        image: article.urlToImage,
+        id: faker.string.uuid(),
+        description: article.description,
+        publishedAt: article.publishedAt,
+        content: article.url,
+        author: article.author,
+        category: article.category,
+      }));
+
+      console.log(allArticles);
+      setArticles(allArticles);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setArticles([]); // Clear articles in case of an error
+    }
   };
 
   useEffect(() => {
@@ -54,7 +56,7 @@ try{
 
     fetchDataAndResetArticles();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [category, search]);
+  }, [category, search, page]);
 
   return (
     <Container
@@ -69,14 +71,24 @@ try{
             </Col>
           ))}
       </Row>
-      {/* <div class="d-flex justify-content-around m-3">
-        <button type="button" class="btn btn-dark ">
-          Dark
+      <div class="d-flex justify-content-around m-3">
+        <button
+          type="button"
+          class="btn btn-dark "
+          onClick={() => setPage((prevPage) => prevPage - 1)}
+          disabled={page === 1}
+        >
+          Previous
         </button>
-        <button type="button" class="btn btn-dark">
-          Dark
+        <button
+          type="button"
+          class="btn btn-dark"
+          onClick={() => setPage((prevPage) => prevPage + 1)}
+          disabled={article.length === 0}
+        >
+          Next
         </button>
-      </div> */}
+      </div>
     </Container>
   );
 };

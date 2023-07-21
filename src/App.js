@@ -13,41 +13,41 @@ function App() {
         <Routes>
           <Route
             exact
-            path="/"
+            path="/general"
             element={<Home key="general" page={4} category="general" search={search} />}
           ></Route>
 
           <Route
             exact
             path="/buisness"
-            element={<Home key="business" page={4} category="business" />}
+            element={<Home key="business" page={4} category="business" search={search} />}
           ></Route>
           <Route
             exact
             path="/entertainment"
             element={
-              <Home key="entertainment" page={4} category="entertainment" />
+              <Home key="entertainment" page={4} category="entertainment" search={search} />
             }
           ></Route>
           <Route
             exact
             path="/sports"
-            element={<Home key="sports" page={4} category="sports" />}
+            element={<Home key="sports" page={4} category="sports" search={search} />}
           ></Route>
           <Route
             exact
             path="/health"
-            element={<Home key="health" page={4} category="health" />}
+            element={<Home key="health" page={4} category="health" search={search} />}
           ></Route>
           <Route
             exact
             path="/science"
-            element={<Home key="science" page={4} category="science" />}
+            element={<Home key="science" page={4} category="science" search={search} />}
           ></Route>
           <Route
             exact
             path="/technology"
-            element={<Home key="technology" page={4} category="technology" />}
+            element={<Home key="technology" page={4} category="technology" search={search} />}
           ></Route>
            <Route
             exact
