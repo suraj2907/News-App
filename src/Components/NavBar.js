@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavBar = () => {
- 
+ const [search, setSearch] = useState("");
+ const navigate = useNavigate()
 
+
+ const handleSubmit = (e) => {
+   e.preventDefault();
+   if (search.trim() !== "") {
+    navigate(`/search/${search}`);
+  }
+  setSearch("");
+ };
   return (
     <div>
       <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
@@ -57,12 +66,14 @@ const NavBar = () => {
                 </Link>
               </li>
             </ul>
-            <form class="d-flex" role="search" >
+            <form class="d-flex" role="search" onSubmit={handleSubmit} >
               <input
                 class="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
               />
               <button class="btn btn-outline-success" type="submit">
                 Search
