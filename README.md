@@ -49,5 +49,6 @@ Technologies Used
 - NewsAPI.org: News data provider.
 
 
-- Contributing
+ Contributing
+  
 Contributions are welcome! If you find any bugs or have suggestions for improvement, please open an issue or submit a pull request. For major changes, please discuss the proposed changes via issue before making them.
