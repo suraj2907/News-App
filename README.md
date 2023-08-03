@@ -1,5 +1,4 @@
-markdown
-Copy code
+
 # News App
 
 This is a news application that allows users to read the latest news articles from various sources and categories using the NewsAPI.org service.
